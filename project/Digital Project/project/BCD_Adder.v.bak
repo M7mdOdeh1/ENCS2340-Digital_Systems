@@ -1,0 +1,19 @@
+//Name : Mohammed Owda
+//id : 1200089
+// BCD Adder using data flow
+
+module BCD_Adder(a,b,cin,sum,cout);
+input [3:0] a,b;
+input cin;
+output [3:0] sum;
+output cout;
+wire [3:0] w1,w3;   
+wire w2;
+assign {w1,w2}= a+b+cin;  //w1 for sum and w2 for carry
+assign w3[1]= w2 || (w1[3] && w1[2]) || (w1[3] && w1[1]);  //w3 to add 6 if sum > 9
+assign w3[2]= w3[1];
+assign w3[0]=0;
+assign w3[3]=0;
+assign {cout,sum} = w1 + w3;
+
+endmodule 

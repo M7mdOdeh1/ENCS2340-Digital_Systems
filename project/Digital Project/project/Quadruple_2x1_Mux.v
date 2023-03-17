@@ -1,0 +1,20 @@
+// Name: Mohammed Owda
+// id: 1200089
+// quadruple 2X1 multiplexer using behavioral model
+
+module Quadruple_2x1_Mux(a,b,s,F);
+input [0:3] a,b;
+input s;
+output reg [0:3] F;
+always @ (a or b or s)
+begin
+if(s==0)
+   F=a;
+else 
+   F=b;
+end 
+
+endmodule 
+
+
+
